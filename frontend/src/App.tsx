@@ -23,23 +23,23 @@ function App() {
           payload: {
             roomId: "red",
           },
-        })
+        }),
       );
     };
   }, []);
 
   return (
-    <div className="bg-black h-screen text-white">
+    <div className="h-screen bg-black text-white">
       {/* renders the messages */}
       <div className="h-[95vh]">
         {messages.map((message) => (
-          <div className="bg-white text-black rounded p-4 mx-5 my-3">
+          <div className="mx-5 my-3 rounded bg-white p-4 text-black">
             {message}
           </div>
         ))}
       </div>
 
-      <div className="w-full bg-white text-black flex">
+      <div className="flex w-full bg-white text-black">
         <input
           onChange={(e) => {
             setInputMessage(e.target.value);
@@ -55,7 +55,7 @@ function App() {
                 payload: {
                   message: inputMessage,
                 },
-              })
+              }),
             );
           }}
           className="bg-purple-600 text-white"
