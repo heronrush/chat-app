@@ -43,7 +43,7 @@ function ReceivedMessage({ message }: { message: string }) {
     <motion.span
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
-      className="mx-5 my-3 rounded-2xl bg-black p-4 text-white"
+      className="mx-5 my-3 rounded-2xl bg-black p-4 text-white transition duration-75"
     >
       {message}
     </motion.span>
