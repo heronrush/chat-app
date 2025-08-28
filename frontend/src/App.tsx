@@ -31,27 +31,31 @@ function App() {
     };
   }, []);
 
-  // new component
   return (
-    <div>
-      <ChatContainer messages={messages} />
-      <SendMessage
-        // to send the chat payload
-        onClick={() => {
-          wsRef.current?.send(
-            JSON.stringify({
-              type: "chat",
-              payload: {
-                message: inputMessage,
-              },
-            }),
-          );
-        }}
-        // to capture the chat payload
-        onChange={(e) => {
-          setInputMessage(e.target.value);
-        }}
-      />
+    <div className="flex h-screen flex-col items-center justify-center bg-[#FAF9F6]">
+      {/* contains the chat display component and the message sending component */}
+      <div className="flex h-full w-[70%] flex-col gap-10 pt-10 pb-20">
+        <div className="h-[80%] rounded-md border border-gray-400 shadow-md">
+          <ChatContainer messages={messages} />
+        </div>
+        <SendMessage
+          // to send the chat payload
+          onClick={() => {
+            wsRef.current?.send(
+              JSON.stringify({
+                type: "chat",
+                payload: {
+                  message: inputMessage,
+                },
+              }),
+            );
+          }}
+          // to capture the chat payload
+          onChange={(e) => {
+            setInputMessage(e.target.value);
+          }}
+        />
+      </div>
     </div>
   );
 }
