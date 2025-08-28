@@ -29,6 +29,12 @@ wss.on("connection", (socket) => {
       // checks if the user who sent "chat" type is already in the Users array or not
       const currentUserRoom = allSockets.find((x) => x.socket === socket);
 
+      if (currentUserRoom) {
+        console.log("user room is " + currentUserRoom.room);
+      } else {
+        console.log("user not found");
+      }
+
       for (let i = 0; i < allSockets.length; i++) {
         if (allSockets[i].room == currentUserRoom?.room) {
           allSockets[i].socket.send(parsedMessage.payload.message);
